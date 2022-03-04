@@ -132,3 +132,13 @@ document.getElementById('toRight')
     // on envoie l'action vers le store => dispatch
     store.dispatch(action);
   });
+
+document.getElementById('toTop')
+  .addEventListener('click', () => {
+    const action = {
+      type: 'DIRECTION_TO_TOP',
+    };
+
+    // on envoie l'action vers le store => dispatch
+    store.dispatch(action);
+  });

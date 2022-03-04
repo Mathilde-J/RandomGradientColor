@@ -51,6 +51,12 @@ const reducer = (state = initialState, action = {}) => {
         lastColor: action.color,
       };
 
+    case 'DIRECTION_TO_TOP':
+      return {
+        ...state,
+        // on peut se servir d'une information du state actuel
+        direction: '45deg',
+      };
       // case 'CHANGE_ALL_COLOR':
       //   return {
       //     ...state,
