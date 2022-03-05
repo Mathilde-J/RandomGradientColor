@@ -11,60 +11,58 @@
 const initialState = {
   firstColor: '#e367a4',
   lastColor: '#48b1f3',
-  direction: '90deg',
+  // direction: '90deg',
   nbColors: 0,
+  direction: 0,
 };
 
 // eslint-disable-next-line arrow-body-style
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'DIRECTION_TO_LEFT':
-      // on va créer une copie du state, et modifier la direction dans cette copie
-      // => on crée un nouvel objet dans lequel on déverse toutes les informations
-      // du state actuel, et on en profite pour faire les modifications
-      return {
-        // on déverse toutes les infos du state actuel
-        ...state,
-        // on applique les modifications
-        direction: '270deg',
-      };
+    // case 'DIRECTION_TO_LEFT':
+    //   // on va créer une copie du state, et modifier la direction dans cette copie
+    //   // => on crée un nouvel objet dans lequel on déverse toutes les informations
+    //   // du state actuel, et on en profite pour faire les modifications
+    //   return {
+    //     // on déverse toutes les infos du state actuel
+    //     ...state,
+    //     // on applique les modifications
+    //     direction: '270deg',
+    //   };
 
-    case 'DIRECTION_TO_RIGHT':
-      return {
-        ...state,
-        direction: '90deg',
-      };
+    // case 'DIRECTION_TO_RIGHT':
+    //   return {
+    //     ...state,
+    //     direction: '90deg',
+    //   };
 
-    case 'CHANGE_FIRST_COLOR':
-      return {
-        ...state,
-        // on peut se servir d'une information du state actuel
-        nbColors: state.nbColors + 1,
-        firstColor: action.color,
-      };
+    // case 'CHANGE_FIRST_COLOR':
+    //   return {
+    //     ...state,
+    //     // on peut se servir d'une information du state actuel
+    //     nbColors: state.nbColors + 1,
+    //     firstColor: action.color,
+    //   };
 
-    case 'CHANGE_LAST_COLOR':
-      return {
-        ...state,
-        // on peut se servir d'une information du state actuel
-        nbColors: state.nbColors + 1,
-        lastColor: action.color,
-      };
+    // case 'CHANGE_LAST_COLOR':
+    //   return {
+    //     ...state,
+    //     // on peut se servir d'une information du state actuel
+    //     nbColors: state.nbColors + 1,
+    //     lastColor: action.color,
+    //   };
 
-    case 'DIRECTION_TO_TOP':
+    // case 'DIRECTION_TO_TOP':
+    //   return {
+    //     ...state,
+    //     // on peut se servir d'une information du state actuel
+    //     direction: '45deg',
+    //   };
+    case 'ROTATE':
       return {
         ...state,
-        // on peut se servir d'une information du state actuel
-        direction: '45deg',
+        direction: state.direction + action.rotate,
       };
-      // case 'CHANGE_ALL_COLOR':
-      //   return {
-      //     ...state,
-      //     // on peut se servir d'une information du state actuel
-      //     nbColors: state.nbColors + 2,
-      //     lastColor: action.color.colorFirst,
-      //     firstColor: action.color.colorLast,
-      //   };
 
     default: return state;
   }
