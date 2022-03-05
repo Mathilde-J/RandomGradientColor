@@ -11,57 +11,38 @@
 const initialState = {
   firstColor: '#e367a4',
   lastColor: '#48b1f3',
-  // direction: '90deg',
+  direction: '90deg',
   nbColors: 0,
-  direction: 0,
 };
 
 // eslint-disable-next-line arrow-body-style
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    // case 'DIRECTION_TO_LEFT':
-    //   // on va créer une copie du state, et modifier la direction dans cette copie
-    //   // => on crée un nouvel objet dans lequel on déverse toutes les informations
-    //   // du state actuel, et on en profite pour faire les modifications
-    //   return {
-    //     // on déverse toutes les infos du state actuel
-    //     ...state,
-    //     // on applique les modifications
-    //     direction: '270deg',
-    //   };
+    case 'DIRECTION_TO':
 
-    // case 'DIRECTION_TO_RIGHT':
-    //   return {
-    //     ...state,
-    //     direction: '90deg',
-    //   };
+      switch (action.angle) {
+        case `${action.angle}`:
+          return {
+            ...state,
+            direction: action.angle,
+          };
+        default: return state;
+      }
 
-    // case 'CHANGE_FIRST_COLOR':
-    //   return {
-    //     ...state,
-    //     // on peut se servir d'une information du state actuel
-    //     nbColors: state.nbColors + 1,
-    //     firstColor: action.color,
-    //   };
-
-    // case 'CHANGE_LAST_COLOR':
-    //   return {
-    //     ...state,
-    //     // on peut se servir d'une information du state actuel
-    //     nbColors: state.nbColors + 1,
-    //     lastColor: action.color,
-    //   };
-
-    // case 'DIRECTION_TO_TOP':
-    //   return {
-    //     ...state,
-    //     // on peut se servir d'une information du state actuel
-    //     direction: '45deg',
-    //   };
-    case 'ROTATE':
+    case 'CHANGE_FIRST_COLOR':
       return {
         ...state,
-        direction: state.direction + action.rotate,
+        // on peut se servir d'une information du state actuel
+        nbColors: state.nbColors + 1,
+        firstColor: action.color,
+      };
+
+    case 'CHANGE_LAST_COLOR':
+      return {
+        ...state,
+        // on peut se servir d'une information du state actuel
+        nbColors: state.nbColors + 1,
+        lastColor: action.color,
       };
 
     default: return state;

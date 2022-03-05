@@ -24,7 +24,7 @@ function renderGradient() {
 
   // https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient()
   document.getElementById('gradient').style.background = `
-    linear-gradient(${direction}deg,${firstColor},${lastColor})
+    linear-gradient(${direction},${firstColor},${lastColor})
   `;
 }
 
@@ -55,99 +55,105 @@ store.subscribe(() => {
   renderColors();
 });
 
+const directionType = 'DIRECTION_TO';
+
 // == Controls
-// document.getElementById('randAll')
-//   .addEventListener('click', () => {
-//     // debug
-//     console.log('Random all colors');
+document.getElementById('randAll')
+  .addEventListener('click', () => {
+    // debug
+    console.log('Random all colors');
 
-//     // data
-//     // on dispatch une action CHANGE_FIRST_COLOR et une action CHANGE_LAST_COLOR
-//     const action = {
-//       type: 'CHANGE_FIRST_COLOR',
-//       color: randomHexColor(),
-//     };
-//     store.dispatch(action);
+    const action = {
+      type: 'CHANGE_FIRST_COLOR',
+      color: randomHexColor(),
+    };
+    store.dispatch(action);
 
-//     // on peut ausi écrire sans variable intermédiaire
-//     store.dispatch({
-//       type: 'CHANGE_LAST_COLOR',
-//       color: randomHexColor(),
-//     });
+    // on peut ausi écrire sans variable intermédiaire
+    store.dispatch({
+      type: 'CHANGE_LAST_COLOR',
+      color: randomHexColor(),
+    });
 
-//     // ui
-//   });
+    // ui
+  });
 
-// document.getElementById('randFirst')
-//   .addEventListener('click', () => {
-//     const newColor = randomHexColor();
+document.getElementById('randFirst')
+  .addEventListener('click', () => {
+    const newColor = randomHexColor();
 
-//     /*
-//     une action c'est un objet qui contient au minimum une propriété "type".
-//     Il peut contenir aussi d'autres propriétés : on appelle ces informations
-//     le payload ("chargement") de l'action
-//     */
-//     const action = {
-//       type: 'CHANGE_FIRST_COLOR',
-//       color: newColor,
-//     };
-//     store.dispatch(action);
-//   });
+    const action = {
+      type: 'CHANGE_FIRST_COLOR',
+      color: newColor,
+    };
+    store.dispatch(action);
+  });
 
-// document.getElementById('randLast')
-//   .addEventListener('click', () => {
-//     const action = {
-//       type: 'CHANGE_LAST_COLOR',
-//       color: randomHexColor(),
-//     };
-//     store.dispatch(action);
-//   });
-
-// document.getElementById('toLeft')
-//   .addEventListener('click', () => {
-//     // une action c'est une intention
-//     // "store, change la direction pour aller vers la gauche"
-
-//     // une action c'est un objet qui contient l'intention dans sa propriété "type"
-
-//     // on veut appliquer un changement sur le state : on envoie une action au
-//     // store (dispatch), le store transmettra l'action au reducer avec aussi le
-//     // state actuel. En fait, le reducer se débrouillera pour traduire l'intention
-//     // en modifications sur le state
-
-//     const action = {
-//       type: 'DIRECTION_TO_LEFT',
-//     };
-
-//     // on envoie l'action vers le store => dispatch
-//     store.dispatch(action);
-//   });
-
-// document.getElementById('toRight')
-//   .addEventListener('click', () => {
-//     const action = {
-//       type: 'DIRECTION_TO_RIGHT',
-//     };
-
-//     // on envoie l'action vers le store => dispatch
-//     store.dispatch(action);
-//   });
-
-// document.getElementById('toTop')
-//   .addEventListener('click', () => {
-//     const action = {
-//       type: 'DIRECTION_TO_TOP',
-//     };
-
-//     // on envoie l'action vers le store => dispatch
-//     store.dispatch(action);
-//   });
-
-document.getElementById('toRotate')
+document.getElementById('randLast')
   .addEventListener('click', () => {
     const action = {
-      type: 'ROTATE',
-      rotate: 45,
+      type: 'CHANGE_LAST_COLOR',
+      color: randomHexColor(),
     };
+    store.dispatch(action);
+  });
+
+document.getElementById('to45deg')
+  .addEventListener('click', () => {
+    const action = {
+      type: directionType,
+      angle: '45deg',
+    };
+
+    store.dispatch(action);
+  });
+
+document.getElementById('toRight')
+  .addEventListener('click', () => {
+    const action = {
+      type: directionType,
+      angle: '90deg',
+    };
+
+    store.dispatch(action);
+  });
+
+document.getElementById('to135')
+  .addEventListener('click', () => {
+    const action = {
+      type: directionType,
+      angle: '135deg',
+    };
+
+    store.dispatch(action);
+  });
+
+document.getElementById('to225')
+  .addEventListener('click', () => {
+    const action = {
+      type: directionType,
+      angle: '225deg',
+    };
+
+    store.dispatch(action);
+  });
+
+document.getElementById('toLeft')
+  .addEventListener('click', () => {
+    const action = {
+      type: directionType,
+      angle: '270deg',
+    };
+
+    store.dispatch(action);
+  });
+
+document.getElementById('to315')
+  .addEventListener('click', () => {
+    const action = {
+      type: directionType,
+      angle: '315deg',
+    };
+
     store.dispatch(action);
   });
