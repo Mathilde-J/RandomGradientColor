@@ -1,5 +1,4 @@
 // == Import
-import './styles.css';
 import CounterColors from '../CounterColors';
 import DirectionsButtons from '../DirectionsButtons';
 import GradientColor from '../GradientColor';

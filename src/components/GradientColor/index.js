@@ -1,10 +1,37 @@
-const GradientColor = () => (
+const GradientColor = () => {
+  const firstColor = 'blue';
+  const lastColor = '#f0f';
+  const direction = '90deg';
 
-  <div>
-    <div id="colors">les couleurs là</div>
-    <div id="gradient">gradient colors</div>
-  </div>
+  // en React on peut utiliser "style" => il faut fournir un objet qui contient le
+  // CSS écrit en JS (CSS-in-JS)
 
-);
+  return (
+    <>
+      <div id="colors">
+        <span style={{
+          color: firstColor,
+        }}
+        >
+          {firstColor}
+        </span>
+        -
+        <span style={{
+          color: lastColor,
+        }}
+        >
+          {lastColor}
+        </span>
+
+      </div>
+      <div
+        id="gradient"
+        style={{
+          background: `linear-gradient(${direction},${firstColor},${lastColor})`,
+        }}
+      />
+    </>
+  );
+};
 
 export default GradientColor;
