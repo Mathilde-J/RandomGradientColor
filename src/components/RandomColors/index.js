@@ -1,9 +1,57 @@
-const RandomColors = () => (
-  <div className="buttons group">
-    <button type="button" className="button" id="randFirst">Random First</button>
-    <button type="button" className="button" id="randAll">Random All</button>
-    <button type="button" className="button" id="randLast">Random Last</button>
-  </div>
-);
+import { useDispatch } from 'react-redux';
+import { randomHexColor } from 'src/utils';
+
+import { changeFirstColor, changeLastColor } from '../../actions/gradient';
+
+const RandomColors = () => {
+  const dispatch = useDispatch();
+
+  return (
+    <div className="buttons group">
+
+      <button
+        type="button"
+        className="button"
+        id="randFirst"
+        onClick={() => {
+          const newColor = randomHexColor();
+          const action = changeFirstColor(newColor);
+          dispatch(action);
+        }}
+      >
+        Random First
+      </button>
+
+      <button
+        type="button"
+        className="button"
+        id="randAll"
+        onClick={() => {
+          const newColorFirst = randomHexColor();
+          const newColorLast = randomHexColor();
+          const actionFist = changeFirstColor(newColorFirst);
+          const actionLast = changeLastColor(newColorLast);
+          dispatch(actionFist);
+          dispatch(actionLast);
+        }}
+      >
+        Random All
+      </button>
+
+      <button
+        type="button"
+        className="button"
+        id="randLast"
+        onClick={() => {
+          const newColor = randomHexColor();
+          const actionLast = changeLastColor(newColor);
+          dispatch(actionLast);
+        }}
+      >
+        Random Last
+      </button>
+    </div>
+  );
+};
 
 export default RandomColors;
