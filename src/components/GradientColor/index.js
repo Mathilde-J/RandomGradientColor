@@ -8,6 +8,8 @@ const GradientColor = () => {
 
   return (
     <>
+      {/* c'est horrible cette syntaxe
+    avec les spans et styles */}
       <div id="colors">
         <span style={{
           color: firstColor,
