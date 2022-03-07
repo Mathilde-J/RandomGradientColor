@@ -22,14 +22,15 @@ const GradientColor = () => {
         >
           {lastColor}
         </span>
-
       </div>
+
       <div
         id="gradient"
         style={{
           background: `linear-gradient(${direction},${firstColor},${lastColor})`,
         }}
       />
+
     </>
   );
 };
