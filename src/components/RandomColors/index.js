@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux';
 import { randomHexColor } from 'src/utils';
-
 import { changeFirstColor, changeLastColor } from '../../actions/gradient';
 
 const RandomColors = () => {

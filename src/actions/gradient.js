@@ -7,7 +7,6 @@ export const CHANGE_FIRST_COLOR = 'CHANGE_FIRST_COLOR';
 export const CHANGE_LAST_COLOR = 'CHANGE_LAST_COLOR';
 
 // === action creators
-// === action creators
 // fonction qui permet de créer une action du type indiqué => fonction qui retourne
 // une nouvelle action
 export const changeFirstColor = (newColor) => (
