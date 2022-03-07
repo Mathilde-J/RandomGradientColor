@@ -28,10 +28,11 @@ const RandomColors = () => {
         id="randAll"
         onClick={() => {
           const newColorFirst = randomHexColor();
-          const newColorLast = randomHexColor();
           const actionFist = changeFirstColor(newColorFirst);
-          const actionLast = changeLastColor(newColorLast);
           dispatch(actionFist);
+
+          const newColorLast = randomHexColor();
+          const actionLast = changeLastColor(newColorLast);
           dispatch(actionLast);
         }}
       >
