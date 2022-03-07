@@ -1,7 +1,9 @@
+import { useSelector } from 'react-redux';
+
 const GradientColor = () => {
-  const firstColor = 'blue';
-  const lastColor = '#f0f';
-  const direction = '90deg';
+  const firstColor = useSelector((state) => (state.firstColor));
+  const lastColor = useSelector((state) => (state.lastColor));
+  const direction = useSelector((state) => (state.direction));
 
   // en React on peut utiliser "style" => il faut fournir un objet qui contient le
   // CSS écrit en JS (CSS-in-JS)
