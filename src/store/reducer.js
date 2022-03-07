@@ -1,3 +1,5 @@
+import { DIRECTION_TO, CHANGE_FIRST_COLOR, CHANGE_LAST_COLOR } from '../actions/gradient';
+
 // reducer : fonction qui fournit le nouveau state à partir du state actuel et
 // d'une action. C'est l'assistant du store (en vrai c'est un peu lui qui fait tout
 // le boulot, le store se contente de lui transmettre action et state, puis il
@@ -18,7 +20,7 @@ const initialState = {
 // eslint-disable-next-line arrow-body-style
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'DIRECTION_TO':
+    case DIRECTION_TO:
 
       switch (action.angle) {
         case `${action.angle}`:
@@ -29,7 +31,7 @@ const reducer = (state = initialState, action = {}) => {
         default: return state;
       }
 
-    case 'CHANGE_FIRST_COLOR':
+    case CHANGE_FIRST_COLOR:
       return {
         ...state,
         // on peut se servir d'une information du state actuel
@@ -37,7 +39,7 @@ const reducer = (state = initialState, action = {}) => {
         firstColor: action.color,
       };
 
-    case 'CHANGE_LAST_COLOR':
+    case CHANGE_LAST_COLOR:
       return {
         ...state,
         // on peut se servir d'une information du state actuel
