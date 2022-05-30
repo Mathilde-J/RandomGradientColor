@@ -1,8 +1,6 @@
 import { useSelector } from 'react-redux';
 
 const CounterColors = () => {
-  // const nbColorsFromState = useSelector((state) => (state.nbColors));
-
   // eslint-disable-next-line arrow-body-style
   // eslint-disable-next-line arrow-body-style
   const selectNbFromState = (state) => {
