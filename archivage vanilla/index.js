@@ -4,14 +4,8 @@ import { DIRECTION_TO, changeLastColor, changeFirstColor, changeDirection } from
 
 import { randomHexColor, generateSpanColor } from './utils';
 
-/* Objectif : faire fonctionner le bouton "random last". Plan d'action :
-x dispatch l'action (src/index.js, handler du bouton)
-- dans le reducer, mettre en place le traitement pour cette action
-*/
-
 // console.log(store.getState());
 
-// == Rendu dans le DOM
 function renderNbColors() {
   const { nbColors } = store.getState();
 
@@ -23,7 +17,6 @@ function renderNbColors() {
 function renderGradient() {
   const { direction, firstColor, lastColor } = store.getState();
 
-  // https://developer.mozilla.org/en-US/docs/Web/CSS/gradient/linear-gradient()
   document.getElementById('gradient').style.background = `
     linear-gradient(${direction},${firstColor},${lastColor})
   `;
@@ -40,17 +33,13 @@ function renderColors() {
   document.getElementById('colors').innerHTML = result;
 }
 
-// == Initialisation
 renderNbColors();
 renderGradient();
 renderColors();
 
-// abonnement aux changements du state : en cas d'appel à dispatch, la callback
-// fournie en argument sera automatiquement appelée
 store.subscribe(() => {
   console.log('le state a changé');
 
-  // on refait l'affichage
   renderNbColors();
   renderGradient();
   renderColors();
@@ -59,7 +48,6 @@ store.subscribe(() => {
 // == Controls
 document.getElementById('randAll')
   .addEventListener('click', () => {
-    // debug
     console.log('Random all colors');
 
     // const action = {
